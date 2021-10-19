@@ -1,0 +1,42 @@
+{
+  "name": "zpi-demo-ui",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3",
+    "web-vitals": "^1.0.1",
+    "zpi-auth-lib": "^0.2.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "eject": "react-scripts eject",
+    "cy:run": "set NODE_ENV=development& cypress run",
+    "cy:verify": "set NODE_ENV=development& cypress verify",
+    "cy:open": "set NODE_ENV=development& cypress open",
+    "e2e": "start-server-and-test start http://localhost:3000 cy:run"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "cypress": "^8.6.0",
+    "start-server-and-test": "^1.14.0"
+  }
+}
