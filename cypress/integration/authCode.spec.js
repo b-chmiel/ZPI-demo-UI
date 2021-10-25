@@ -24,8 +24,11 @@ context("AuthCode", () => {
 
 const authCodeFlow = () => {
   cy.get("button").contains("Authorize").click();
+  cy.location("pathname", { timeout: 6000 }).should("include", "/signin");
   cy.get("input").eq(0).type("s");
   cy.get("input").eq(1).type("s");
+
   cy.get("button").contains("Sign in").click();
+  cy.location("pathname", { timeout: 6000 }).should("include", "/allow");
   cy.get("button").contains("Allow").click();
 };

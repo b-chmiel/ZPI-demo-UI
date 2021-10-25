@@ -1,5 +1,6 @@
 {
   "chromeWebSecurity": false,
   "browser": "electron",
-  "video": false
+  "video": false,
+  "screenshotOnRunFailure": false
 }
