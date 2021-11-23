@@ -13,7 +13,7 @@ function App() {
   const code = getCode();
   const host = "localhost:8080";
   const clientId = "1";
-  const [token, setToken] = React.useState(null);
+  const [token, setToken] = React.useState("{}");
 
   const onGetToken = () => {
     setToken(getToken(host, code, clientId));
@@ -24,10 +24,12 @@ function App() {
   };
 
   useEffect(() => {
-    if (token !== null) {
-      navigator.clipboard.writeText(token["access_token"]).then(() => {
-        alert("Copied token to clipboard");
-      });
+    if (token !== "{}") {
+      navigator.clipboard
+        .writeText(JSON.parse(token)["access_token"])
+        .then(() => {
+          alert("Copied token to clipboard");
+        });
     }
   }, [token, setToken]);
 
