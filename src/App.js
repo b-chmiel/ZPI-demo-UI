@@ -1,5 +1,5 @@
 import { AuthButton, getToken } from "zpi-auth-lib";
-import React from "react";
+import React, { useEffect } from "react";
 
 function App() {
   const getCode = () => {
@@ -15,22 +15,32 @@ function App() {
   const clientId = "1";
   const [token, setToken] = React.useState(null);
 
+  const onGetToken = () => {
+    setToken(getToken(host, code, clientId));
+  };
+
+  const redirectToHome = () => {
+    window.location.href = window.location.origin;
+  };
+
+  useEffect(() => {
+    if (token !== null) {
+      navigator.clipboard.writeText(token["access_token"]).then(() => {
+        alert("Copied token to clipboard");
+      });
+    }
+  }, [token, setToken]);
+
   return (
     <>
       {isCode(code) ? (
         <>
-          <button
-            onClick={() => (window.location.href = window.location.origin)}
-          >
-            Home
-          </button>
+          <button onClick={redirectToHome}>Home</button>
           <div>Auth code: {code}</div>
           <div>
-            <button onClick={() => setToken(getToken(host, code, clientId))}>
-              Get tokens
-            </button>
+            <button onClick={onGetToken}>Get token</button>
           </div>
-          <div>Token: {token}</div>
+          <div>Token: {JSON.stringify(token)}</div>
         </>
       ) : (
         <AuthButton clientId={clientId} host={host} />
