@@ -2,8 +2,8 @@ import { AuthButton, getToken } from "zpi-auth-lib";
 import React, { useEffect } from "react";
 
 function App() {
-  const host = process.env.REACT_APP_AUTH_HOST;
-  const clientId = process.env.REACT_APP_AUTH_CLIENT_ID;
+  const host = process.env.REACT_APP_AUTH_HOST || "localhost:8080";
+  const clientId = process.env.REACT_APP_AUTH_CLIENT_ID || "1";
   const [token, setToken] = React.useState("{}");
 
   const code = (() => {
@@ -24,11 +24,17 @@ function App() {
 
   useEffect(() => {
     if (token !== "{}") {
-      navigator.clipboard
-        .writeText(JSON.parse(token)["access_token"])
-        .then(() => {
+      try {
+        navigator.clipboard.writeText(token["access_token"]).then(() => {
           alert("Copied token to clipboard");
         });
+      } catch (e) {
+        navigator.clipboard
+          .writeText(JSON.parse(token)["access_token"])
+          .then(() => {
+            alert("Copied token to clipboard");
+          });
+      }
     }
   }, [token, setToken]);
 

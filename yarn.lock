@@ -11860,7 +11860,7 @@ yocto-queue@^0.1.0:
   resolved "https://registry.yarnpkg.com/yocto-queue/-/yocto-queue-0.1.0.tgz#0294eb3dee05028d31ee1a5fa2c556a6aaf10a1b"
   integrity sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==
 
-zpi-auth-lib@^0.2.2:
-  version "0.2.2"
-  resolved "https://registry.yarnpkg.com/zpi-auth-lib/-/zpi-auth-lib-0.2.2.tgz#414fd26c8fec50f0afb5eb3fa360f1daeed3b5bf"
-  integrity sha512-2UAtuxIvLYmT1O3PZTHUOEvhmP11XiklXoeiX7Ny2JfJMqaDyBdSN3UZ2d5VGC2vShApxbJr7xtLou9sf8caZQ==
+zpi-auth-lib@0.2.6:
+  version "0.2.6"
+  resolved "https://registry.yarnpkg.com/zpi-auth-lib/-/zpi-auth-lib-0.2.6.tgz#0155a3c1a3f6a933d736b8656eeb24b0a0cacf17"
+  integrity sha512-0O3CHE786UOb6i2hd84lx2N4wimSBei48iIDdx/ldWASqk5qj4zLj7y7DmgQRItKGwRJgbU23JuH9M05SMW2vA==
