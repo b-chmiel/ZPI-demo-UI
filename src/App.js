@@ -2,8 +2,8 @@ import { AuthButton, getToken } from "zpi-auth-lib";
 import React, { useEffect } from "react";
 
 function App() {
-  const host = process.env.REACT_APP_AUTH_HOST;
-  const clientId = process.env.REACT_APP_AUTH_CLIENT_ID;
+  const host = process.env.REACT_APP_AUTH_HOST || "localhost:8080";
+  const clientId = process.env.REACT_APP_AUTH_CLIENT_ID || "1";
   const [token, setToken] = React.useState("{}");
 
   const code = (() => {
